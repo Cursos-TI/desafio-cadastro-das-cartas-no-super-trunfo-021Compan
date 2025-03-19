@@ -1,74 +1,81 @@
 #include <stdio.h>
 
-void criar_Carta(){
+// Estrutura para armazenar os dados de uma carta
+typedef struct Carta {
+    char codigo[4];
+    char estado[50];
+    char cidade[50];
+    int populacao;
+    float area;
+    float pib;
+    int pontosTuristicos;
+} Carta;
 
-    // Declaração das variáveis para as duas cartas
-    int populacao1, populacao2, pontosTuristicos1, pontosTuristicos2;
-    float area1, area2, pib1, pib2;
-    char estado1[50], estado2[50], cidade1[50], cidade2[50], codigo1[50], codigo2[50];
-
+// Função para criar as cartas
+void criar_Cartas(Carta *carta1, Carta *carta2) {
     // Cadastro da primeira carta
     printf("Cadastro da primeira carta:\n");
     printf("Digite o código: ");
-    scanf("%s", codigo1);
+    scanf("%s", carta1->codigo);
     printf("Digite o estado: ");
-    scanf("%s", estado1);
+    scanf("%s", carta1->estado);
     printf("Digite a cidade: ");
-    scanf("%s", cidade1);
+    scanf("%s", carta1->cidade);
     printf("Digite a população: ");
-    scanf("%d", &populacao1);
+    scanf("%d", &carta1->populacao);
     printf("Digite a área (em km²): ");
-    scanf("%f", &area1);
+    scanf("%f", &carta1->area);
     printf("Digite o PIB (em bilhões): ");
-    scanf("%f", &pib1);
+    scanf("%f", &carta1->pib);
     printf("Digite o número de pontos turísticos: ");
-    scanf("%d", &pontosTuristicos1);
+    scanf("%d", &carta1->pontosTuristicos);
 
     // Cadastro da segunda carta
     printf("\nCadastro da segunda carta:\n");
     printf("Digite o código: ");
-    scanf("%s", codigo2);
+    scanf("%s", carta2->codigo);
     printf("Digite o estado: ");
-    scanf("%s", estado2);
+    scanf("%s", carta2->estado);
     printf("Digite a cidade: ");
-    scanf("%s", cidade2);
+    scanf("%s", carta2->cidade);
     printf("Digite a população: ");
-    scanf("%d", &populacao2);
+    scanf("%d", &carta2->populacao);
     printf("Digite a área (em km²): ");
-    scanf("%f", &area2);
+    scanf("%f", &carta2->area);
     printf("Digite o PIB (em bilhões): ");
-    scanf("%f", &pib2);
+    scanf("%f", &carta2->pib);
     printf("Digite o número de pontos turísticos: ");
-    scanf("%d", &pontosTuristicos2);
-
+    scanf("%d", &carta2->pontosTuristicos);
 }
 
-void exibir_Carta(populacao1, populacao2, pontosTuristicos1, pontosTuristicos2, area1, area2, pib1, pib2){
-
+// Função para exibir as cartas
+void exibir_Cartas(Carta carta1, Carta carta2) {
     // Exibição dos dados da primeira carta
     printf("\nDados da primeira carta:\n");
-    printf("População: %d\n", populacao1);
-    printf("Área: %.2f km²\n", area1);
-    printf("PIB: %.2f bilhões\n", pib1);
-    printf("Pontos turísticos: %d\n", pontosTuristicos1);
+    printf("Código: %s\n", carta1.codigo);
+    printf("Estado: %s\n", carta1.estado);
+    printf("Cidade: %s\n", carta1.cidade);
+    printf("População: %d\n", carta1.populacao);
+    printf("Área: %.2f km²\n", carta1.area);
+    printf("PIB: %.2f bilhões\n", carta1.pib);
+    printf("Pontos turísticos: %d\n", carta1.pontosTuristicos);
 
     // Exibição dos dados da segunda carta
     printf("\nDados da segunda carta:\n");
-    printf("População: %d\n", populacao2);
-    printf("Área: %.2f km²\n", area2);
-    printf("PIB: %.2f bilhões\n", pib2);
-    printf("Pontos turísticos: %d\n", pontosTuristicos2);
-
+    printf("Código: %s\n", carta2.codigo);
+    printf("Estado: %s\n", carta2.estado);
+    printf("Cidade: %s\n", carta2.cidade);
+    printf("População: %d\n", carta2.populacao);
+    printf("Área: %.2f km²\n", carta2.area);
+    printf("PIB: %.2f bilhões\n", carta2.pib);
+    printf("Pontos turísticos: %d\n", carta2.pontosTuristicos);
 }
 
-int main(populacao1, populacao2, pontosTuristicos1, pontosTuristicos2, area1, area2, pib1, pib2){ {
+int main() {
+    Carta carta1, carta2; // Declaração de duas cartas
 
-    // Chamada da função para criar as cartas
-    criar_Carta();
-
-    // Exibição dos dados da primeira carta
-    exibir_Carta();
+    criar_Cartas(&carta1, &carta2); // Chamada da função para criar as cartas
+    exibir_Cartas(carta1, carta2);  // Chamada da função para exibir as cartas
 
     return 0;
-
 }
